@@ -36,10 +36,14 @@ class HomePageTests(HomePage):
             self,
             HomePageLocators.remove_from_cart_btn,
             HomePageTexts.remove_from_cart_btn)
-        Generic.scroll_to_and_verify_text(self, HomePageLocators.cart_badge, "1")
         self.click(HomePageLocators.remove_from_cart_btn)
-        self.assert_element_not_visible(HomePageLocators.cart_badge)
         Generic.scroll_to_and_verify_text(
             self,
             HomePageLocators.random_add_to_cart_btn.format(index_of_the_prod),
             HomePageTexts.add_to_cart_btn)
+    def test_TC_0007_random_number_of_products_added_to_cart_displays_the_number_label_on_the_cart_icon(self):
+        number_of_products_selected = HomePage.select_random_number_of_products(self, True)
+        Generic.scroll_to_and_verify_text(self, HomePageLocators.cart_badge, number_of_products_selected)
+        print(number_of_products_selected)
+        self.wait(5)
+

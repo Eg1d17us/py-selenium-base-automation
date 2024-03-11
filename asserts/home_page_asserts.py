@@ -1,7 +1,7 @@
 from seleniumbase import BaseCase
 from pages.locators_page import HomePageLocators
 from pages.generic_functions_page import Generic
-from testData.texts_urls_btns import URLs
+from testData.texts_urls_btns import URLs, Buttons
 
 
 class HomePageAsserts(BaseCase):
@@ -15,26 +15,26 @@ class HomePageAsserts(BaseCase):
         self.assertEqual(expected_side_menu_elements, actual_side_menu_elements)
 
     def verify_navigation_of_btn(self, button):
-        if button == "About":
+        if button == Buttons.about_btn:
             self.click(HomePageLocators.hamburger_btn)
             Generic.verify_button_navigates_to_url(
                 self,
                 HomePageLocators.about_btn,
                 URLs.about_btn_url,
                 new_tab_is_opened=False)
-        elif button == "Twitter":
+        elif button == Buttons.twitter_btn:
             Generic.verify_button_navigates_to_url(
                 self,
                 HomePageLocators.twitter_btn,
                 URLs.saucelabs_twitter_url,
                 new_tab_is_opened=True)
-        elif button == "Facebook":
+        elif button == Buttons.facebook_btn:
             Generic.verify_button_navigates_to_url(
                 self,
                 HomePageLocators.facebook_btn,
                 URLs.saucelabs_facebook_url,
                 new_tab_is_opened=True)
-        elif button == "Linkedin":
+        elif button == Buttons.linkedin_btn:
             Generic.verify_button_navigates_to_url(
                 self,
                 HomePageLocators.linkedin_btn,
