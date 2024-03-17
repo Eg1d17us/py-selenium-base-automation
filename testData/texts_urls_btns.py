@@ -14,3 +14,9 @@ class Buttons:
     twitter_btn = "Twitter"
     facebook_btn = "Facebook"
     linkedin_btn = "Linkedin"
+
+class Sorting:
+    NameDescending = "Name (Z to A)"
+    NameAscending = "Name (A to Z)"
+    PriceDescending = "Price (high to low)"
+    PriceAscending = "Price (low to high)"

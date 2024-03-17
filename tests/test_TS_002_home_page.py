@@ -4,7 +4,7 @@ from pages.home_page import HomePage
 from pages.locators_page import HomePageLocators
 from asserts.home_page_asserts import HomePageAsserts
 from pages.generic_functions_page import Generic
-from testData.texts_urls_btns import HomePageTexts, Buttons
+from testData.texts_urls_btns import HomePageTexts, Buttons, Sorting
 
 
 
@@ -41,9 +41,14 @@ class HomePageTests(HomePage):
             self,
             HomePageLocators.random_add_to_cart_btn.format(index_of_the_prod),
             HomePageTexts.add_to_cart_btn)
-    def test_TC_0007_random_number_of_products_added_to_cart_displays_the_number_label_on_the_cart_icon(self):
+
+    def test_TC_0008_random_number_of_products_added_to_cart_displays_the_number_label_on_the_cart_icon(self):
         number_of_products_selected = HomePage.select_random_number_of_products(self, True)
         Generic.scroll_to_and_verify_text(self, HomePageLocators.cart_badge, number_of_products_selected)
         print(number_of_products_selected)
-        self.wait(5)
 
+    def test_TC_0009_products_can_be_sorted_by_name_and_by_price(self):
+        HomePage.sort_by_name_and_verify_sorting(self, Sorting.NameDescending)
+        HomePage.sort_by_name_and_verify_sorting(self, Sorting.NameAscending)
+        HomePage.sort_by_price_and_verify_sorting(self, Sorting.PriceAscending)
+        HomePage.sort_by_price_and_verify_sorting(self, Sorting.PriceDescending)

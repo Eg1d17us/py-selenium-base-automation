@@ -21,8 +21,11 @@ class HomePageLocators:
     twitter_btn = "//a[contains(text(),'Twitter')]"
     facebook_btn = "//a[contains(text(),'Facebook')]"
     linkedin_btn = "//a[contains(text(),'LinkedIn')]"
+    product_sort_btn = "//select[@data-test='product_sort_container']"
     copyright_txt = "//div[@class='footer_copy']"
     cart_badge = "//span[@class='shopping_cart_badge']"
+    product_names = "//a/div[@class='inventory_item_name ']"
+    product_prices = "//div[@class='inventory_item_price']"
 
 
 class CartPageLocators:
